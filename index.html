@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satosh Maurya - Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="blob"></div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="toggleMode" class="toggle-mode" aria-label="Toggle Mode">
+            <span id="modeIcon">☀️</span>
+        </button>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Satosh Maurya</h1>
+            <p>Information Technology Student & Passionate Coder</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="assets/profile/profile-pic.jpg" alt="Satosh Maurya" class="profile-image">
+                <ul class="about-info">
+                    <li>My name is Satosh Maurya, and I am from Mumbai, India.</li>
+                    <li>I am a student of Information Technology, passionate about coding.</li>
+                    <li>I have done several projects and enjoy experimenting with different technologies.</li>
+                    <li>I am eager to explore the world of web development and contribute to the growing community of developers.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills" class="tech-stack">
+            <h2>Tech Stack</h2>
+            <div class="tech-stack-list" id="techStackList">
+                <!-- Tech stack items will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="project-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Web">Web</button>
+                <button class="filter-btn" data-filter="AI">AI</button>
+            </div>
+            <div id="projectsList">
+                <!-- Project items will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>What People Say</h2>
+            <div class="testimonial-carousel">
+                <!-- Testimonial items will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <form id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Satosh Maurya. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
