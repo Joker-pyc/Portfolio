@@ -17,8 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "Web"
     },
 
-
-
     {
       title: "Real-Time Chat Application",
       description: "The Real-Time Chat Application is a web-based communication platform that allows users to engage in real-time text-based conversations.",
@@ -26,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       image: "assets/project/RTC.png",
       category: "Web"
     },
-      // Add more projects here
+      
       {
         title: "AI-Based Diet & Workout Planner",
         description: "An intelligent workout planning application that uses AI to create personalized fitness routines based on user goals and preferences.",
