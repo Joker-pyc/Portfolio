@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Projects data
+  // Updated Projects data
   const projects = [
     {
       title: "AI Chat-Bot Using Gimini API",
@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
       image: "assets/project/ai.png",
       category: "AI"
     },
-
     {
       title: "E-Sports Website",
       description: "A dynamic website dedicated to e-sports, featuring live tournament updates, team profiles, and interactive match schedules for various competitive gaming events.",
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
       image: "assets/project/e-sports.png",
       category: "Web"
     },
-
     {
       title: "Real-Time Chat Application",
       description: "The Real-Time Chat Application is a web-based communication platform that allows users to engage in real-time text-based conversations.",
@@ -24,28 +22,23 @@ document.addEventListener("DOMContentLoaded", function () {
       image: "assets/project/RTC.png",
       category: "Web"
     },
-      
-      {
-        title: "AI-Based Diet & Workout Planner",
-        description: "An intelligent workout planning application that uses AI to create personalized fitness routines based on user goals and preferences.",
-        link: "https://example.com/ai-workout-planner",
-        image: "assets/project/workout-planner.png",
-        category: "AI"
-      }, 
+    {
+      title: "AI-Based Diet & Workout Planner",
+      description: "An intelligent workout planning application that uses AI to create personalized fitness routines based on user goals and preferences.",
+      link: "https://example.com/ai-workout-planner",
+      image: "assets/project/workout-planner.png",
+      category: "AI"
+    },
+    {
+      title: "College Hackathon 2023 Project Showcase",
+      description: "A web platform showcasing innovative projects developed during the 2023 College Hackathon, featuring cutting-edge solutions across various domains.",
+      link: "https://example.com/college-hackathon-2023",
+      image: "assets/project/hackathon.png",
+      category: "Event"
+    }
+  ];
 
-      {
-        title: "College Hackathon 2023 Project Showcase",
-        description: "A web platform showcasing innovative projects developed during the 2023 College Hackathon, featuring cutting-edge solutions across various domains.",
-        link: "https://example.com/college-hackathon-2023",
-        image: "assets/project/hackathon.png",
-        category: "Event"      }
-
-       
-    
-    
-    ];
-
-  // Tech stack data
+  // Updated Tech stack data
   const techStack = [
     { icon: "assets/icons/html.svg", label: "HTML", proficiency: 90 },
     { icon: "assets/icons/css.svg", label: "CSS", proficiency: 85 },
@@ -74,7 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
       role: "Senior Developer",
       content: "Working with Satosh was a pleasure. His problem-solving skills and dedication to quality are impressive."
     },
-    // Add more testimonials here
+    {
+      name: "Alex Johnson",
+      role: "UX Designer",
+      content: "Satosh's ability to translate design concepts into functional and aesthetically pleasing websites is remarkable."
+    }
   ];
 
   function renderProjects() {
@@ -83,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     projects.forEach((project) => {
       const projectElement = document.createElement("div");
-      projectElement.classList.add("project");
+      projectElement.classList.add("project-card");
       projectElement.setAttribute("data-category", project.category);
 
       projectElement.innerHTML = `
@@ -105,11 +102,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     techStack.forEach((item) => {
       const techStackItem = document.createElement("div");
-      techStackItem.classList.add("tech-stack-item");
+      techStackItem.classList.add("tech-item");
 
       techStackItem.innerHTML = `
-        <img src="${item.icon}" alt="${item.label}" class="tech-stack-image">
-        <span class="tech-stack-label">${item.label}</span>
+        <img src="${item.icon}" alt="${item.label}" class="tech-icon">
+        <span class="tech-label">${item.label}</span>
         <div class="progress-bar">
           <div class="progress" style="width: ${item.proficiency}%"></div>
         </div>
@@ -128,9 +125,11 @@ document.addEventListener("DOMContentLoaded", function () {
       testimonialItem.classList.add("testimonial-item");
 
       testimonialItem.innerHTML = `
-        <p>${testimonial.content}</p>
-        <h4>${testimonial.name}</h4>
-        <span>${testimonial.role}</span>
+        <p>"${testimonial.content}"</p>
+        <div class="testimonial-author">
+          <h4>${testimonial.name}</h4>
+          <span>${testimonial.role}</span>
+        </div>
       `;
 
       testimonialCarousel.appendChild(testimonialItem);
@@ -139,13 +138,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function setupProjectFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const projects = document.querySelectorAll('.project');
+    const projects = document.querySelectorAll('.project-card');
 
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
-        const filter = button.dataset.filter;
+        const filter = button.getAttribute('data-filter');
         projects.forEach(project => {
-          if (filter === 'all' || project.dataset.category === filter) {
+          if (filter === 'all' || project.getAttribute('data-category') === filter) {
             project.style.display = 'block';
           } else {
             project.style.display = 'none';
@@ -167,17 +166,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const message = contactForm.elements['message'].value;
 
       if (!name || !email || !message) {
-        alert('Please fill in all fields');
+        showNotification('Please fill in all fields', 'error');
         return;
       }
 
       if (!isValidEmail(email)) {
-        alert('Please enter a valid email address');
+        showNotification('Please enter a valid email address', 'error');
         return;
       }
 
       console.log('Form submitted:', { name, email, message });
-      alert('Thank you for your message! I will get back to you soon.');
+      showNotification('Thank you for your message! I will get back to you soon.', 'success');
       contactForm.reset();
     });
   }
@@ -185,6 +184,16 @@ document.addEventListener("DOMContentLoaded", function () {
   function isValidEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+  }
+
+  function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.classList.add('notification', type);
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    setTimeout(() => {
+      notification.remove();
+    }, 3000);
   }
 
   function setupDarkMode() {
@@ -214,6 +223,13 @@ document.addEventListener("DOMContentLoaded", function () {
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
     });
+
+    // Add hover effect for interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .project-card, .tech-item');
+    interactiveElements.forEach(elem => {
+      elem.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      elem.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
   }
 
   function setupScrollReveal() {
@@ -238,8 +254,34 @@ document.addEventListener("DOMContentLoaded", function () {
     const blob = document.querySelector('.blob');
     document.addEventListener('mousemove', (e) => {
       const { clientX, clientY } = e;
-      blob.style.left = `${clientX - 100}px`;
-      blob.style.top = `${clientY - 100}px`;
+      blob.style.left = `${clientX}px`;
+      blob.style.top = `${clientY}px`;
+    });
+  }
+
+  function setupSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
+  function setupFloatingActionBar() {
+    const floatingBar = document.querySelector('.floating-action-bar');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        floatingBar.style.bottom = '-60px';
+      } else {
+        floatingBar.style.bottom = '20px';
+      }
+      lastScrollTop = scrollTop;
     });
   }
 
@@ -254,4 +296,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setupScrollReveal();
   setupParticles();
   setupGlassmorphismBlob();
+  setupSmoothScrolling();
+  setupFloatingActionBar();
 });
