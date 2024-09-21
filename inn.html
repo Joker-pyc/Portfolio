@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUIT Code-Con Event Poster</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0a0e17;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .poster {
+    width: 210mm;
+    height: 297mm;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%2364ffda' stroke-width='1' stroke-opacity='0.05'%3E%3Cpath d='M50 100Q150 350 300 200T600 400'/%3E%3Cpath d='M700 50L650 750'/%3E%3Ccircle cx='200' cy='600' r='100'/%3E%3Cpath d='M0 700h800' stroke-dasharray='10,20'/%3E%3C/g%3E%3C/svg%3E"),
+        radial-gradient(circle at 10% 20%, rgba(100, 255, 218, 0.1) 0%, transparent 20%), 
+        radial-gradient(circle at 90% 80%, rgba(76, 201, 240, 0.1) 0%, transparent 20%), 
+        linear-gradient(135deg, #0a192fb9, #11224059);
+    color: #ffffff;
+    padding: 20mm;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 40px rgba(100, 255, 218, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+
+        .poster::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='circuit' x='0' y='0' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 50 L100 50 M50 0 L50 100 M25 25 L75 75 M75 25 L25 75' stroke='%2364ffda' stroke-width='1' fill='none' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23circuit)'/%3E%3C/svg%3E");
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .header {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5.5em;
+            margin: 0;
+            background: linear-gradient(45deg, #64ffda, #4cc9f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+            letter-spacing: 5px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin: 15px 0 40px;
+            color: #8892b0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .event-banner {
+            background: linear-gradient(45deg, #f72585, #4cc9f0);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(247, 37, 133, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .sub-events {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .event {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+
+        .event:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(100, 255, 218, 0.2);
+        }
+
+        .event i {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #64ffda;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+
+        .event h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin: 15px 0;
+            color: #64ffda;
+            font-size: 1.8em;
+            letter-spacing: 2px;
+        }
+
+        .event p {
+            color: #8892b0;
+            font-size: 1.2em;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #8892b0;
+            font-size: 1.3em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer p {
+            margin: 15px 0;
+        }
+
+        .footer i {
+            margin-right: 15px;
+            color: #64ffda;
+        }
+
+        .qr-code {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .qr-code img {
+            width: 120px;
+            height: 120px;
+            border: 4px solid #64ffda;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <h1>MUIT Code-Con</h1>
+            <h2>Presented by MUIT CODE CREW</h2>
+        </div>
+        
+        <div class="event-banner">
+            Embark on an Epic Tech Adventure!
+        </div>
+
+        <div class="sub-events">
+            <div class="event">
+                <i class="fas fa-globe"></i>
+                <h3>WebCraft</h3>
+                <p>Build Your Digital Empire</p>
+            </div>
+            <div class="event">
+                <i class="fas fa-gamepad"></i>
+                <h3>PixelWars</h3>
+                <p>Battle for Supremacy</p>
+            </div>
+            <div class="event">
+                <i class="fas fa-key"></i>
+                <h3>CipherQuest</h3>
+                <p>Decode the Future</p>
+            </div>
+            <div class="event">
+                <i class="fas fa-code"></i>
+                <h3>CodeStorm</h3>
+                <p>Innovate for Tomorrow</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><i class="far fa-calendar-alt"></i> Date: September 15-17, 2024</p>
+            <p><i class="fas fa-map-marker-alt"></i> Venue: MUIT Campus, Tech Hall</p>
+            <p><i class="fas fa-envelope"></i> muitcodecrew@muit.edu</p>
+            <div class="qr-code">
+                <img src="/api/placeholder/120/120" alt="QR Code for event registration">
+                <p>Scan to Register</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
