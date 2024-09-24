@@ -789,9 +789,8 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(var(--header-bg-rgb), 0.8);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        
+    
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.5s ease-out;
@@ -801,14 +800,24 @@ footer {
 
     .nav-links.show {
         display: flex;
-        max-height: 300px;
+        max-height: 100vh;
         transition: max-height 0.5s ease-in;
         flex-direction: column;
         flex-wrap: nowrap;
         align-items: center;
-        justify-content: center;
-        align-content: center;
+        justify-content: flex-start;
+        padding: 1rem 0;
+        background: rgba(var(--header-bg-rgb), 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        overflow-y: auto;
     }
+    
 
     .nav-links ul {
       display: flex;
